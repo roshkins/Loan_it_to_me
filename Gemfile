@@ -22,3 +22,4 @@ end
 gem "backbone-on-rails"
 gem "rabl"
 gem "pg"
+gem "bcrypt-ruby"
