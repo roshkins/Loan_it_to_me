@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       login!(@user)
       redirect_to user_url(@user)
     else
+      flash[:errors] ||= []
       flash[:errors] << "Username or password not found" 
       redirect_to new_session_url
     end
