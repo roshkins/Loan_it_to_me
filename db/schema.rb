@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902035757) do
+ActiveRecord::Schema.define(:version => 20130902051943) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(:version => 20130902035757) do
   end
 
   create_table "homes", :force => true do |t|
-    t.decimal  "latitude",   :precision => 10, :scale => 6
-    t.decimal  "longitude",  :precision => 10, :scale => 6
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "street"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "item_photos", :force => true do |t|
