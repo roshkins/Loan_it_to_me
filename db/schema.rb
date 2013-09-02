@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902005930) do
+ActiveRecord::Schema.define(:version => 20130902035757) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,33 +32,26 @@ ActiveRecord::Schema.define(:version => 20130902005930) do
 
   create_table "item_photos", :force => true do |t|
     t.integer  "item_id"
-    t.integer  "photo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "file_loc"
   end
 
   add_index "item_photos", ["item_id"], :name => "index_item_photos_on_item_id"
-  add_index "item_photos", ["photo_id"], :name => "index_item_photos_on_photo_id"
 
   create_table "items", :force => true do |t|
     t.integer  "home_id"
     t.integer  "category_id"
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",       :precision => 6, :scale => 2
+    t.decimal  "price",                                     :default => 0.0
     t.decimal  "avg_rating",  :precision => 3, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                                                 :null => false
+    t.datetime "updated_at",                                                 :null => false
   end
 
   add_index "items", ["category_id"], :name => "index_items_on_category_id"
   add_index "items", ["home_id"], :name => "index_items_on_home_id"
-
-  create_table "photos", :force => true do |t|
-    t.string   "file_loc"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "rental_reviews", :force => true do |t|
     t.integer  "author_id"
