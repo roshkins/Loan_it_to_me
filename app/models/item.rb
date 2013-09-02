@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   attr_accessible :avg_rating, :category_id, :description, :home_id, :name, :price
-  validate :category_id, :home_id, :name
+  validate :category_id, :home_id, :name, presence: true
   
   belongs_to :home
   belongs_to :category

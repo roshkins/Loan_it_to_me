@@ -1,0 +1,46 @@
+<h1>Admin#new</h1>
+
+<p>New User</p>
+<form action="<%= users_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for='user_username'>Username:</label>
+  <input type='text' name='user[username]' id='username'>
+  <br>
+  <label for="user_password">Password:</label>
+  <input type="password" name='user[password]' id='password'>
+  <br>
+  <label for="user_selfie">Upload a Selfie!</label>
+  <input type="text" name='user[selfie]' id='user_selfie'>
+  <br>
+  <label for='user_email'>Email:</label>
+  <input type='text' name='user[email]' id='username'> 
+  <br>
+  <label for="user_bio">Tell us about yourself</label>
+  <br>
+  <textarea name='user[bio]' id='user_bio'></textarea>
+  <br>
+
+  <input type="submit" value="Create Account">
+</form>
+
+<p>New Item</p>
+<%= form_for @item do |f| %>
+<%= f.label :home_id %>
+<%= f.number :home_id %>
+<%= f.label :category_id %>
+<%= f.number :category_id %>
+<%= f.label :name %>
+<%= f.text :name %>
+<% end %>
+
+
+
+
+
+<!-- Categories -->
+<%= form_for @category do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
+
