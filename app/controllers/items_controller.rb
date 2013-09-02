@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
-    render :json => @items
+    @items = Item.where(category_id: params[:category_id]).all
+    
+    respond_to do |format|
+      format.html #TODO: remove
+      format.json { render [:handlers] => :rabl }
+    end
   end
 
   def create

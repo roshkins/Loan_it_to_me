@@ -3,11 +3,15 @@ window.LoanItToMe = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    console.log('Hello from Backbone!');
+  initialize: function($rootEl, categories) {
+    var categories = new LoanItToMe.Collections.Categories(categories);
+    debugger
+    var indexView = new LoanItToMe.Views.CategoryIndex({ collection: categories });
+
   }
 };
 
 $(document).ready(function(){
-  LoanItToMe.initialize();
+  var categories = JSON.parse($('#categories-data').html());
+  LoanItToMe.initialize($('.content'), categories);
 });
