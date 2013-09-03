@@ -3,11 +3,9 @@ window.LoanItToMe = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function($rootEl, categories) {
-    var categories = new LoanItToMe.Collections.Categories(categories);
-    debugger
-    var indexView = new LoanItToMe.Views.CategoryIndex({ collection: categories });
-
+  initialize: function($rootEl, catdata) {
+    var categories = new LoanItToMe.Collections.Categories( catdata );
+    var categoryRouter = new LoanItToMe.Routers.Category( $rootEl, categories );
   }
 };
 
