@@ -12,5 +12,6 @@ window.LoanItToMe = {
 
 $(document).ready(function() {
   var categories = JSON.parse( $('#categories-data').html() );
+  # REV: Perhaps make the collection here so that you're not making it every access of a route
   LoanItToMe.initialize( $('.content'), categories );
 });
